@@ -1,0 +1,282 @@
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	scroll-behavior: smooth;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.body-container {
+	background-color: wheat;
+}
+
+header {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	/* height: 15vh; */
+	background-color: #ff1212;
+}
+
+.nav__content {
+	width: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: column;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.nav__title {
+	width: 300px;
+}
+
+.nav__title img {
+	width: 100%;
+	height: 100%;
+}
+
+.nav__input {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.nav__logo {
+	width: 32px;
+	filter: invert(89%) sepia(26%) saturate(5212%) hue-rotate(359deg)
+		brightness(102%) contrast(104%);
+}
+
+.nav__logo img {
+	width: 100%;
+}
+
+#search__input {
+	padding: 10px;
+	height: 10px;
+	border: 2px solid rgb(202, 199, 194);
+	border-radius: 15px;
+	margin-right: 2%;
+}
+
+.types {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	background-color: darkslategray;
+}
+
+.types__selector {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 45px;
+	height: 45px;
+	border: 1px solid black;
+	border-radius: 20px;
+	margin: 1%;
+	padding: 5px;
+	background-color: grey;
+	box-shadow: 0 0 20px #1f2429;
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+}
+
+.types__selector:hover {
+	-webkit-transform: scale(1.5);
+	-moz-transform: scale(1.5);
+	-ms-transform: scale(1.5);
+	-o-transform: scale(1.5);
+	transform: scale(1.5);
+}
+
+#pokedex {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	font-family: "Quantico", sans-serif;
+}
+
+.pkmn__name {
+	text-transform: capitalize;
+}
+
+.pkmn__image {
+	height: 130px;
+	border: 1px solid black;
+	border-radius: 100px;
+	background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%);
+	margin-top: 20px;
+	margin-bottom: 12.5px;
+}
+
+.pkmn__info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px;
+	color: black;
+}
+
+.pkmn__info--type {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pkmn__info--type__name {
+	display: flex;
+	justify-content: center;
+	margin: 4%;
+	padding: 5px;
+	/* border: 1px solid black; */
+	border-radius: 12px;
+	text-transform: uppercase;
+	box-shadow: 0 0 20px #000000;
+}
+
+.pkmn__info--statcontainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.flip-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	cursor: pointer;
+
+	/* background-color: transparent; */
+	width: 240px;
+	height: 350px;
+	border-radius: 30px;
+	margin: 40px;
+	perspective: 1000px;
+
+	/* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	transition: transform 0.5s;
+	transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+	transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	border: 1px groove #1f2429;
+	border-radius: 30px;
+	box-shadow: 0 0 20px #1f2429;
+	background: linear-gradient(
+		135deg,
+		rgba(133, 133, 133, 1) 0%,
+		rgba(124, 124, 124, 1) 36%,
+		rgba(249, 180, 30, 1) 75%
+	);
+}
+
+.flip-card-front {
+	color: black;
+	background-color: transparent;
+}
+
+.flip-card-back {
+	color: black;
+	transform: rotateY(180deg);
+}
+
+.fire {
+	background-color: #ff4500;
+}
+
+.grass {
+	background-color: #006400;
+}
+
+.water {
+	background-color: #00ffff;
+}
+.flying {
+	background-color: #f4a460;
+}
+
+.electric {
+	background-color: #ffd700;
+}
+
+.ground {
+	background-color: #8b4513;
+}
+
+.rock {
+	background-color: #c0c0c0;
+}
+
+.fairy {
+	background-color: #ffb6c1;
+}
+.bug {
+	background-color: #98fb98;
+}
+.poison {
+	background-color: #ba55d3;
+}
+.dragon {
+	background-color: #5a8bee;
+}
+.psychic {
+	background-color: #ff69b4;
+}
+.fighting {
+	background-color: #a52a2a;
+}
+.normal {
+	background-color: #ffdab9;
+}
+.ghost {
+	background-color: #800080;
+}
+.steel {
+	background-color: #708090;
+}
+.ice {
+	background-color: #add8e6;
+}
+.dark {
+	background-color: #25259e;
+}
+
+.all {
+	background-color: wheat;
+}
