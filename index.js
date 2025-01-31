@@ -62,12 +62,12 @@ const paintPokemons = (pokemonsToPaint) => {
 		// Si existe un segundo valor en types, la condicional devuelve el valor doble. Si no existe segundo valor, solo se devolverá el valor único.
 		if (pokemon.types[1]) {
 			return `
-      <div class="pkmn__info--type__name">${pokemon.types[0].type.name}</div>
-      <div class="pkmn__info--type__name">${pokemon.types[1].type.name}</div>
+      <div class="pkmn__type">${pokemon.types[0].type.name}</div>
+      <div class="pkmn__type">${pokemon.types[1].type.name}</div>
       `;
 		}
 		return `
-      <div class="pkmn__info--type__name">${pokemon.types[0].type.name}</div>
+      <div class="pkmn__type">${pokemon.types[0].type.name}</div>
       `;
 	};
 
@@ -87,41 +87,51 @@ const paintPokemons = (pokemonsToPaint) => {
 		//En esta variable introducimos toda la información que queremos mostrar sobre el Pokemon. Estamos metiendo de manera literal la información, además de las url de cada elemento.
 		// Usamos el método .padStart() para rellenear los números de cada pokemon con 0 delante.
 		const pokemonData = `
-    
   <div class="flip-card-inner">
-    <div class="flip-card-front" >
-    <img class="pkmn__image" src=${pokemon.sprites.front_default} alt=${
+    <div class="flip-card-front">
+      <div class="pkmn__core">
+	  <div class="pkmn__image"><img  src="${pokemon.sprites.front_default}" alt="${
 			pokemon.name
-		}>
-    <h2 class="pkmn__id">#${pokemon.id.toString().padStart(4, "0")}</h2>
-    <h2 class="pkmn__name">${pokemon.name}</h2>
-    <div class="pkmn__info">
-    <div class="pkmn__info--type">${renderTypes(pokemon)}
-    </div>
-    
-    </div>
+		}"></div>
+        
+        <h2 class="pkmn__id">#${pokemon.id.toString().padStart(4, "0")}</h2>
+      </div>
+      <div class="pkmn__info--front">
+        <h2 class="pkmn__name">${pokemon.name}</h2>
+		<div class="pkmn__types">
+     ${renderTypes(pokemon)}     
+	 </div>   
+      </div>
     </div>
     <div class="flip-card-back" style="background:${getBGColorStyleByPokemon(
 			pokemon
-		)};">
-    <img class="pkmn__image" src=${pokemon.sprites.back_default} alt=${
+		)}">
+		<div class="pkmn__image">
+		<img class="pkmn__image" src="${pokemon.sprites.back_default}" alt="${
 			pokemon.name
-		}>
-    
-    <div class="pkmn__info">
-    <h2 class="pkmn__info--title">Estadísticas base</h2>
-    <div class="pkmn__info--statcontainer">
-    <h3 class="pkmn__info--stat">ATQ: ${pokemon.stats[1].base_stat}</h3>
-    <h3 class="pkmn__info--stat">ATS: ${pokemon.stats[3].base_stat}</h3>
-    <h3 class="pkmn__info--stat">DEF: ${pokemon.stats[2].base_stat}</h3>
-    <h3 class="pkmn__info--stat">DFS: ${pokemon.stats[4].base_stat}</h3>
-    <h3 class="pkmn__info--stat">HP: ${pokemon.stats[0].base_stat}</h3>
-    <h3 class="pkmn__info--stat">VEL: ${pokemon.stats[5].base_stat}</h3>
-    </div>
-    </div>
+		}">
+		</div>
+      
+      <div class="pkmn__info--back">
+        <h2>Stats base</h2>
+        <div class="pkmn__statcontainer">
+		<div class="pkmn__statcontainer--column">
+          <p>ATQ: ${pokemon.stats[1].base_stat}</p>
+          <p>DEF: ${pokemon.stats[2].base_stat}</p>
+		  <p>HP: ${pokemon.stats[0].base_stat}</p>
+		  </div>
+		  <div class="pkmn__statcontainer--column"><p>ATS: ${
+				pokemon.stats[3].base_stat
+			}</p>
+          <p>DFS: ${pokemon.stats[4].base_stat}</p>
+          <p>VEL: ${pokemon.stats[5].base_stat}</p>
+		  </div>
+        </div>
+      </div>
     </div>
   </div>
 `;
+
 		pokemonCard$$.innerHTML = pokemonData;
 
 		pokedex$$.appendChild(pokemonCard$$);
@@ -131,9 +141,7 @@ const paintPokemons = (pokemonsToPaint) => {
 };
 
 const paintTypeBox = () => {
-	const allTypeBox$$ = document.getElementsByClassName(
-		"pkmn__info--type__name"
-	);
+	const allTypeBox$$ = document.getElementsByClassName("pkmn__type");
 	for (let index = 0; index < allTypeBox$$.length; index++) {
 		const typeBox$$ = allTypeBox$$[index];
 
@@ -164,7 +172,7 @@ const catchOnePokemon = async (id) => {
 
 const catchAllPokemons = async () => {
 	const promises = [];
-	for (let id = 1; id <= 251; id++) {
+	for (let id = 1; id <= 898; id++) {
 		promises.push(
 			fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => res.json())
 		);
@@ -218,7 +226,5 @@ document.querySelectorAll(".types__selector").forEach((button) => {
 		console.log(event.target.classList[1]);
 	});
 });
-
-
 
 catchAllPokemons();
