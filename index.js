@@ -192,11 +192,11 @@ const filterPokemon = (event) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-	console.log("📌 Aplicando fondo de hierba al cargar la página...");
 	
-	// ✅ Establecer fondo de hierba al cargar la página
+	
+
 	document.body.style.background = "url('/media/images/field-map.webp') repeat";
-	document.body.style.backgroundColor = "transparent"; // Asegurar que no haya un color blanco
+	document.body.style.backgroundColor = "transparent"; 
 	
   });
   

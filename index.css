@@ -33,7 +33,7 @@ nav {
 }
 
 h1 {
-	font-size: 20px;
+	font-size: 36px;
 	font-family: 'Pokemon Solid', sans-serif;
 	color: #ffc804;
 	letter-spacing: 1px;
@@ -190,7 +190,9 @@ main {
 
 .types {
 	width: 100%;
-	background-color: #1a5e99;
+	background: url(/media/images/battle-arena-pokemon.webp);
+	background-size: cover;
+	background-position: center;
 	display: flex;
 	justify-content: center;
 }
