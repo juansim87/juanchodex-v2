@@ -28,12 +28,27 @@
 								alt="Título de la web Juanchodex 2.0"
 							/>
 						</div>
-						<div class="nav__input">
-							<div class="nav__logo">
-								<img src="/media/type-icons/all-types.svg" alt="logo-pokemon" />
-							</div>
-							<input type="text" id="search__input" placeholder="Buscar..." />
+						<section class="filters">
+						<div class="pkmn-search">
+							<input type="text" id="search__input" placeholder="Nombre/ID Pokémon..." />
 						</div>
+						<div class="gen-selector">
+							<label for="genSelect">Mostrar generaciones hasta:</label>
+							<select id="genSelect">
+							  <option value="151" selected>1ª generación</option>
+							  <option value="251">2ª generación</option>
+							  <option value="386">3ª generación</option>
+							  <option value="493">4ª generación</option>
+							  <option value="649">5ª generación</option>
+							  <option value="721">6ª generación</option>
+							  <option value="809">7ª generación</option>
+							  <option value="898">8ª generación</option>
+							  <option value="1025">9ª generación</option>
+							</select>
+						  </div>
+						  
+						  <button id="loadPokemons">Cargar Gen</button>
+					</section>
 					</div>
 				</nav>
 			</header>
@@ -95,7 +110,7 @@
 							<img src="./media/type-icons/dark.svg" alt="SINIESTRO" />
 						</div>
 						<div class="types__selector all" role="button">
-							<img src="./media/type-icons/all-types.svg" alt="TODOS" />
+							<img src="./media/type-icons/all-types2.png" alt="TODOS" />
 						</div>
 					</div>
 				</section>

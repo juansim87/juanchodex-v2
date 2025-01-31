@@ -41,7 +41,7 @@ nav {
 	height: 100%;
 }
 
-.nav__input {
+.pkmn-search {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -57,13 +57,102 @@ nav {
 	width: 100%;
 }
 
-#search__input {
+.filters {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 15px;
+	
 	padding: 10px;
+	border-radius: 10px;
+  }
+  
+  /* 🎯 Input de búsqueda */
+  #search__input {
+	padding: 8px 12px;
+	font-size: 16px;
+	border: 2px solid black;
+	border-radius: 20px;
+	outline: none;
+	background: white;
+	color: black;
+	font-weight: bold;
+	transition: 0.3s ease;
+  }
+  
+  #search__input::placeholder {
+	color: #555;
+	font-weight: normal;
+  }
+  
+  #search__input:focus {
+	border-color: #ffcc00;
+	box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+  }
+  
+  /* 🎯 Selector de generación */
+  #genSelect {
+	padding: 8px;
+	font-size: 16px;
+	font-weight: bold;
+	border: 2px solid black;
+	border-radius: 10px;
+	background: white;
+	color: black;
+	transition: 0.3s ease;
+  }
+  
+  #genSelect:hover {
+	background: #ffcc00;
+	color: black;
+  }
+  
+  #genSelect:focus {
+	border-color: #ff3333;
+	box-shadow: 0 0 8px rgba(255, 51, 51, 0.8);
+  }
+  
+  /* 🎯 Botón de carga inspirado en la Pokéball */
+  #loadPokemons {
+	padding: 10px 15px;
+	font-size: 16px;
+	font-weight: bold;
+	color: black;
+	background: linear-gradient(to bottom, red 50%, white 50%);
+	border: 3px solid black;
+	border-radius: 50px;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: 0.3s ease;
+	position: relative;
+	overflow: hidden;
+  }
+  
+  #loadPokemons::before {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 10px;
 	height: 10px;
-	border: 2px solid #cac7c2;
-	border-radius: 15px;
-	margin-right: 2%;
-}
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+  }
+  
+  #loadPokemons:hover {
+	background: linear-gradient(to bottom, white 50%, red 50%);
+	color: black;
+	
+  }
+  
+  #loadPokemons:active {
+	transform: scale(0.95);
+  }
+  
+  /* 🎯 Icono del logo Pokémon */
+  .nav__logo img {
+	width: 40px;
+	height: 40px;
+  }
 
 main {
 	width: 100%;
@@ -71,7 +160,7 @@ main {
 
 .types {
 	width: 100%;
-	background-color: #117474;
+	background-color: #1a5e99;
 	display: flex;
 	justify-content: center;
 }
@@ -83,7 +172,7 @@ main {
 	justify-content: center;
 	flex-wrap: wrap;
 	padding: 20px 0;
-	gap: 20px;
+	gap: 12px;
 }
 
 .types__selector {
@@ -236,7 +325,7 @@ main {
 	justify-content: center;
 	font-size: 10px;
 	text-transform: uppercase;
-	text-shadow: 0 0 8px #ffffff;
+	text-shadow: 0 0 6px #ffffff;
 	padding: 3px;
 	border-radius: 12px;
 	box-shadow: 0 0 20px #fff;

@@ -170,13 +170,11 @@ const catchOnePokemon = async (id) => {
 	ALL_POKEMONS.push(pokemon);
 };
 
-const catchAllPokemons = async () => {
+const catchAllPokemons = async (count) => {
 	const promises = [];
-	for (let id = 1; id <= 898; id++) {
-		promises.push(
-			fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => res.json())
-		);
-	}
+	for (let id = 1; id <= count; id++) {
+		promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json()));
+	  }
 	ALL_POKEMONS = await Promise.all(promises);
 	paintPokemons(ALL_POKEMONS);
 };
@@ -193,28 +191,43 @@ const filterPokemon = (event) => {
 	paintPokemons(filtered);
 };
 
-const filterPokemonByType = (type) => {
+document.addEventListener("DOMContentLoaded", () => {
+	console.log("📌 Aplicando fondo de hierba al cargar la página...");
+	
+	// ✅ Establecer fondo de hierba al cargar la página
+	document.body.style.background = "url('/media/images/grass-field.png') repeat";
+	document.body.style.backgroundColor = "transparent"; // Asegurar que no haya un color blanco
+  
+	// 🛠 Si en algún punto el fondo se estableció en blanco, forzar la imagen de hierba
+	
+  });
+  
+  const filterPokemonByType = (type) => {
 	if (type === "all") {
-		document.body.style.backgroundColor = typeColors[type];
-		return paintPokemons(ALL_POKEMONS);
+	  console.log("🌿 Restaurando fondo de hierba...");
+	  document.body.style.background = "url('/media/images/grass-field.png') repeat";
+	  
+	  return paintPokemons(ALL_POKEMONS);
 	}
-
+  
+	console.log(`🎨 Cambiando fondo al color del tipo ${type}`);
 	const filteredByType = ALL_POKEMONS.filter((pokemon) => {
-		let firstType = false;
-		let secondType = false;
-
-		if (pokemon.types[1]) {
-			secondType = pokemon.types[1].type.name === type;
-		}
-		if (pokemon.types[0]) {
-			firstType = pokemon.types[0].type.name === type;
-		}
-
-		return firstType || secondType;
+	  let firstType = false;
+	  let secondType = false;
+  
+	  if (pokemon.types[1]) {
+		secondType = pokemon.types[1].type.name === type;
+	  }
+	  if (pokemon.types[0]) {
+		firstType = pokemon.types[0].type.name === type;
+	  }
+  
+	  return firstType || secondType;
 	});
+  
 	paintPokemons(filteredByType);
-	document.body.style.backgroundColor = typeColors[type];
-};
+	document.body.style.background = typeColors[type] || "gray"; // Color de respaldo si no hay color definido
+  };
 
 document.getElementById("search__input").addEventListener("input", (event) => {
 	filterPokemon(event);
@@ -223,8 +236,19 @@ document.getElementById("search__input").addEventListener("input", (event) => {
 document.querySelectorAll(".types__selector").forEach((button) => {
 	button.addEventListener("click", (event) => {
 		filterPokemonByType(event.currentTarget.classList[1]);
-		console.log(event.target.classList[1]);
 	});
 });
+
+// Evento para cargar Pokémon según el selector de generación
+document.getElementById("loadPokemons").addEventListener("click", () => {
+	const count = document.getElementById("genSelect").value;
+	catchAllPokemons(count);
+  });
+  
+  // ✅ Cargar automáticamente la primera generación al inicio
+  document.addEventListener("DOMContentLoaded", () => {
+	const defaultCount = document.getElementById("genSelect").value; // Valor inicial (151)
+	catchAllPokemons(defaultCount); // Cargar Pokémon al cargar la página
+  });
 
 catchAllPokemons();
