@@ -195,17 +195,15 @@ document.addEventListener("DOMContentLoaded", () => {
 	console.log("📌 Aplicando fondo de hierba al cargar la página...");
 	
 	// ✅ Establecer fondo de hierba al cargar la página
-	document.body.style.background = "url('/media/images/grass-field.png') repeat";
+	document.body.style.background = "url('/media/images/field-map.webp') repeat";
 	document.body.style.backgroundColor = "transparent"; // Asegurar que no haya un color blanco
-  
-	// 🛠 Si en algún punto el fondo se estableció en blanco, forzar la imagen de hierba
 	
   });
   
   const filterPokemonByType = (type) => {
 	if (type === "all") {
 	  console.log("🌿 Restaurando fondo de hierba...");
-	  document.body.style.background = "url('/media/images/grass-field.png') repeat";
+	  document.body.style.background = "url('/media/images/field-map.webp') repeat";
 	  
 	  return paintPokemons(ALL_POKEMONS);
 	}

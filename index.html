@@ -16,39 +16,44 @@
 			type="image/x-icon"
 		/>
 		<link rel="stylesheet" href="./index.css" />
+		<style>
+			@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+			</style>
 	</head>
 	<body>
 		<div class="body-content">
 			<header>
 				<nav>
 					<div class="nav-content">
-						<div class="nav__title">
-							<img
-								src="/media/title/juanchodexv2.png"
-								alt="Título de la web Juanchodex 2.0"
-							/>
-						</div>
+						
+							<h1>Juanchodex v2.0</h1>
+						
 						<section class="filters">
-						<div class="pkmn-search">
-							<input type="text" id="search__input" placeholder="Nombre/ID Pokémon..." />
-						</div>
-						<div class="gen-selector">
-							<label for="genSelect">Mostrar generaciones hasta:</label>
-							<select id="genSelect">
-							  <option value="151" selected>1ª generación</option>
-							  <option value="251">2ª generación</option>
-							  <option value="386">3ª generación</option>
-							  <option value="493">4ª generación</option>
-							  <option value="649">5ª generación</option>
-							  <option value="721">6ª generación</option>
-							  <option value="809">7ª generación</option>
-							  <option value="898">8ª generación</option>
-							  <option value="1025">9ª generación</option>
-							</select>
-						  </div>
-						  
-						  <button id="loadPokemons">Cargar Gen</button>
-					</section>
+							<div class="pkmn-search">
+								<input
+									type="text"
+									id="search__input"
+									placeholder="Nombre/ID Pokémon..."
+								/>
+							</div>
+							<div class="gen-selector">
+								<div class="option__input">
+								<label for="genSelect">Mostrar generaciones hasta:</label>
+								<select id="genSelect">
+									<option value="151" selected>1ª generación</option>
+									<option value="251">2ª generación</option>
+									<option value="386">3ª generación</option>
+									<option value="493">4ª generación</option>
+									<option value="649">5ª generación</option>
+									<option value="721">6ª generación</option>
+									<option value="809">7ª generación</option>
+									<option value="898">8ª generación</option>
+									<option value="1025">9ª generación</option>
+								</select></div>
+								
+								<button id="loadPokemons">Cargar Gen</button>
+							</div>
+						</section>
 					</div>
 				</nav>
 			</header>
