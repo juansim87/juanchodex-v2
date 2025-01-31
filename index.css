@@ -9,10 +9,6 @@
 	box-sizing: border-box;
 }
 
-.body-container {
-	background-color: wheat;
-}
-
 header {
 	width: 100%;
 	display: flex;
@@ -24,11 +20,10 @@ nav {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* height: 15vh; */
-	background-color: #ff1212;
+	background-color: #e2350d;
 }
 
-.nav__content {
+.nav-content {
 	width: 90%;
 	display: flex;
 	flex-direction: column;
@@ -65,17 +60,30 @@ nav {
 #search__input {
 	padding: 10px;
 	height: 10px;
-	border: 2px solid rgb(202, 199, 194);
+	border: 2px solid #cac7c2;
 	border-radius: 15px;
 	margin-right: 2%;
 }
 
+main {
+	width: 100%;
+}
+
 .types {
+	width: 100%;
+	background-color: #117474;
+	display: flex;
+	justify-content: center;
+}
+
+.types-content {
+	width: 90%;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	flex-wrap: wrap;
-	background-color: darkslategray;
+	flex-wrap: wrap;	
+	padding: 20px 0;
+	gap: 20px;
 }
 
 .types__selector {
@@ -84,9 +92,8 @@ nav {
 	justify-content: center;
 	width: 45px;
 	height: 45px;
-	border: 1px solid black;
-	border-radius: 20px;
-	margin: 1%;
+	border: 2px solid black;
+	border-radius: 50%;
 	padding: 5px;
 	background-color: grey;
 	box-shadow: 0 0 20px #1f2429;
@@ -105,57 +112,19 @@ nav {
 	transform: scale(1.5);
 }
 
+.types__selector img {
+	width: 80%;
+}
+
 #pokedex {
+	width: 80%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	font-family: "Quantico", sans-serif;
-}
-
-.pkmn__name {
-	text-transform: capitalize;
-}
-
-.pkmn__image {
-	height: 130px;
-	border: 1px solid black;
-	border-radius: 100px;
-	background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%);
-	margin-top: 20px;
-	margin-bottom: 12.5px;
-}
-
-.pkmn__info {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin: 20px;
-	color: black;
-}
-
-.pkmn__info--type {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.pkmn__info--type__name {
-	display: flex;
-	justify-content: center;
-	margin: 4%;
-	padding: 5px;
-	/* border: 1px solid black; */
-	border-radius: 12px;
-	text-transform: uppercase;
-	box-shadow: 0 0 20px #000000;
-}
-
-.pkmn__info--statcontainer {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	padding: 40px;
+	gap: 40px;
 }
 
 .flip-card {
@@ -165,10 +134,9 @@ nav {
 	cursor: pointer;
 
 	/* background-color: transparent; */
-	width: 240px;
-	height: 350px;
+	width: 120px;
+	height: 180px;
 	border-radius: 30px;
-	margin: 40px;
 	perspective: 1000px;
 
 	/* Remove this if you don't want the 3D effect */
@@ -215,6 +183,53 @@ nav {
 	color: black;
 	transform: rotateY(180deg);
 }
+
+.pkmn__name {
+	text-transform: capitalize;
+}
+
+.pkmn__image {
+	height: 90px;
+	border: 1px solid black;
+	border-radius: 100px;
+	background: linear-gradient(180deg, #ff0000 50%, #ffffff 50%);
+	margin-top: 20px;
+	margin-bottom: 12.5px;
+}
+
+.pkmn__info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	
+	color: black;
+}
+
+.pkmn__info--type {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.pkmn__info--type__name {
+	display: flex;
+	justify-content: center;
+
+	padding: 5px;
+	/* border: 1px solid black; */
+	border-radius: 12px;
+	text-transform: uppercase;
+	box-shadow: 0 0 20px #000000;
+}
+
+.pkmn__info--statcontainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+
 
 .fire {
 	background-color: #ff4500;
