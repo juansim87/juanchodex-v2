@@ -47,6 +47,7 @@ const typeNames = {
 	steel: "acero",
 	ice: "hielo",
 	dark: "siniestro",
+	all: "todos",
 };
 
 // Con esta función pintamos en la web los Pokemon seleccionados. La variable pokemonsToPaint indica cuáles de ellos.
@@ -192,8 +193,6 @@ const filterPokemon = (event) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-	
-	
 
 	document.body.style.background = "url('/media/images/field-map.webp') repeat";
 	document.body.style.backgroundColor = "transparent"; 
@@ -202,13 +201,13 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const filterPokemonByType = (type) => {
 	if (type === "all") {
-	  console.log("🌿 Restaurando fondo de hierba...");
+	  
 	  document.body.style.background = "url('/media/images/field-map.webp') repeat";
 	  
 	  return paintPokemons(ALL_POKEMONS);
 	}
   
-	console.log(`🎨 Cambiando fondo al color del tipo ${type}`);
+	
 	const filteredByType = ALL_POKEMONS.filter((pokemon) => {
 	  let firstType = false;
 	  let secondType = false;
@@ -224,7 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
   
 	paintPokemons(filteredByType);
-	document.body.style.background = typeColors[type] || "gray"; // Color de respaldo si no hay color definido
+	document.body.style.background = typeColors[type] || "gray";
   };
 
 document.getElementById("search__input").addEventListener("input", (event) => {
@@ -238,8 +237,8 @@ document.querySelectorAll(".types__selector").forEach((button) => {
 });
 
 // Evento para cargar Pokémon según el selector de generación
-document.getElementById("loadPokemons").addEventListener("click", () => {
-	const count = document.getElementById("genSelect").value;
+document.getElementById("genSelect").addEventListener("change", (event) => {
+	const count = event.target.value;
 	catchAllPokemons(count);
   });
   

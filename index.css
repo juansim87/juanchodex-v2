@@ -143,40 +143,6 @@ h1 {
 	box-shadow: 0 0 8px rgba(255, 51, 51, 0.8);
   }
   
-  #loadPokemons {
-	padding: 10px 15px;
-	font-size: 16px;
-	font-weight: bold;
-	color: black;
-	background: linear-gradient(to bottom, red 50%, white 50%);
-	border: 3px solid black;
-	border-radius: 50px;
-	text-transform: uppercase;
-	cursor: pointer;
-	transition: 0.3s ease;
-	position: relative;
-	overflow: hidden;
-  }
-  
-  #loadPokemons::before {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	transform: translate(-50%, -50%);
-  }
-  
-  #loadPokemons:hover {
-	background: linear-gradient(to bottom, white 50%, red 50%);
-	color: black;
-	
-  }
-  
-  #loadPokemons:active {
-	transform: scale(0.95);
-  }
   
 
   .nav__logo img {
