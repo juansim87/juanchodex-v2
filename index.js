@@ -239,7 +239,9 @@ document.querySelectorAll(".types__selector").forEach((button) => {
 // Evento para cargar Pokémon según el selector de generación
 document.getElementById("genSelect").addEventListener("change", (event) => {
 	const count = event.target.value;
+	
 	catchAllPokemons(count);
+	document.body.style.background = "url('/media/images/field-map.webp') repeat";
   });
   
   // ✅ Cargar automáticamente la primera generación al inicio
