@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Juanchodex v2.0</title>
-		<script src="./index.js" defer></script>
+
 		<link
 			href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Quantico&family=Righteous&display=swap"
 			rel="stylesheet"
@@ -15,19 +15,18 @@
 			href="/media/type-icons/all-types.svg"
 			type="image/x-icon"
 		/>
-		<link rel="stylesheet" href="./index.css" />
+		<link rel="stylesheet" href="./styles/index.css" />
 		<style>
-			@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
-			</style>
+			@import url("https://fonts.cdnfonts.com/css/pokemon-solid");
+		</style>
+		<script src="./index.js" defer></script>
 	</head>
 	<body>
 		<div class="body-content">
 			<header>
 				<nav>
-					<div class="nav-content">
-						
-							<h1>Juanchodex v2.0</h1>
-						
+					<div class="nav-content container">
+						<h1>Juanchodex v2.0</h1>
 						<section class="filters">
 							<div class="pkmn-search">
 								<input
@@ -38,28 +37,27 @@
 							</div>
 							<div class="gen-selector">
 								<div class="option__input">
-								<label for="genSelect">Mostrar generaciones hasta:</label>
-								<select id="genSelect">
-									<option value="151" selected>1ª generación</option>
-									<option value="251">2ª generación</option>
-									<option value="386">3ª generación</option>
-									<option value="493">4ª generación</option>
-									<option value="649">5ª generación</option>
-									<option value="721">6ª generación</option>
-									<option value="809">7ª generación</option>
-									<option value="898">8ª generación</option>
-									<option value="1025">9ª generación</option>
-								</select></div>
-								
-								
+									<label for="genSelect">Mostrar generaciones hasta:</label>
+									<select id="genSelect">
+										<option value="151" selected>1ª generación</option>
+										<option value="251">2ª generación</option>
+										<option value="386">3ª generación</option>
+										<option value="493">4ª generación</option>
+										<option value="649">5ª generación</option>
+										<option value="721">6ª generación</option>
+										<option value="809">7ª generación</option>
+										<option value="898">8ª generación</option>
+										<option value="1025">9ª generación</option>
+									</select>
+								</div>
 							</div>
 						</section>
 					</div>
 				</nav>
 			</header>
 			<main>
-				<section class="types">
-					<div class="types-content">
+				<section class="types ">
+					<div class="types-content container">
 						<div class="types__selector fire" role="button">
 							<img src="./media/type-icons/fire.svg" alt="FUEGO" />
 						</div>
@@ -118,9 +116,13 @@
 							<img src="./media/type-icons/all-types2.png" alt="TODOS" />
 						</div>
 					</div>
+					<div class="flip-mode container">
+						<label for="flipMode">Desbloquear cartas</label>
+						<input type="checkbox" id="flipMode" checked />
+					</div>
 				</section>
 
-				<div id="pokedex"></div>
+				<div id="pokedex" class="container"></div>
 			</main>
 		</div>
 	</body>

@@ -1,0 +1,17 @@
+@media (min-width: 481px) {
+	:root {
+        --container-width: 85%;
+    }
+
+}
+
+
+
+
+@media (min-width: 1024px) {
+	:root {
+        --container-width: 75%;
+    }
+
+
+}

@@ -141,6 +141,24 @@ const paintPokemons = (pokemonsToPaint) => {
 	paintTypeBox();
 };
 
+document.getElementById("pokedex").addEventListener("click", (event) => {
+	const card = event.target.closest(".flip-card"); // Detecta si se hizo click en una carta
+	const flipMode = document.getElementById("flipMode").checked; // Verifica si el checkbox está marcado
+
+	if (card) {
+		// ✅ Si el checkbox NO está marcado (modo único activado), cerrar otras cartas
+		if (!flipMode) {
+			document.querySelectorAll(".flip-card").forEach((c) => {
+				if (c !== card) c.classList.remove("flipped");
+			});
+		}
+
+		// Alternar el estado de la carta seleccionada
+		card.classList.toggle("flipped");
+	}
+});
+
+
 const paintTypeBox = () => {
 	const allTypeBox$$ = document.getElementsByClassName("pkmn__type");
 	for (let index = 0; index < allTypeBox$$.length; index++) {
@@ -174,8 +192,10 @@ const catchOnePokemon = async (id) => {
 const catchAllPokemons = async (count) => {
 	const promises = [];
 	for (let id = 1; id <= count; id++) {
-		promises.push(fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(res => res.json()));
-	  }
+		promises.push(
+			fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((res) => res.json())
+		);
+	}
 	ALL_POKEMONS = await Promise.all(promises);
 	paintPokemons(ALL_POKEMONS);
 };
@@ -193,38 +213,35 @@ const filterPokemon = (event) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-
 	document.body.style.background = "url('/media/images/field-map.webp') repeat";
-	document.body.style.backgroundColor = "transparent"; 
-	
-  });
-  
-  const filterPokemonByType = (type) => {
+	document.body.style.backgroundColor = "transparent";
+});
+
+const filterPokemonByType = (type) => {
 	if (type === "all") {
-	  
-	  document.body.style.background = "url('/media/images/field-map.webp') repeat";
-	  
-	  return paintPokemons(ALL_POKEMONS);
+		document.body.style.background =
+			"url('/media/images/field-map.webp') repeat";
+
+		return paintPokemons(ALL_POKEMONS);
 	}
-  
-	
+
 	const filteredByType = ALL_POKEMONS.filter((pokemon) => {
-	  let firstType = false;
-	  let secondType = false;
-  
-	  if (pokemon.types[1]) {
-		secondType = pokemon.types[1].type.name === type;
-	  }
-	  if (pokemon.types[0]) {
-		firstType = pokemon.types[0].type.name === type;
-	  }
-  
-	  return firstType || secondType;
+		let firstType = false;
+		let secondType = false;
+
+		if (pokemon.types[1]) {
+			secondType = pokemon.types[1].type.name === type;
+		}
+		if (pokemon.types[0]) {
+			firstType = pokemon.types[0].type.name === type;
+		}
+
+		return firstType || secondType;
 	});
-  
+
 	paintPokemons(filteredByType);
 	document.body.style.background = typeColors[type] || "gray";
-  };
+};
 
 document.getElementById("search__input").addEventListener("input", (event) => {
 	filterPokemon(event);
@@ -239,15 +256,15 @@ document.querySelectorAll(".types__selector").forEach((button) => {
 // Evento para cargar Pokémon según el selector de generación
 document.getElementById("genSelect").addEventListener("change", (event) => {
 	const count = event.target.value;
-	
+
 	catchAllPokemons(count);
 	document.body.style.background = "url('/media/images/field-map.webp') repeat";
-  });
-  
-  // ✅ Cargar automáticamente la primera generación al inicio
-  document.addEventListener("DOMContentLoaded", () => {
-	const defaultCount = document.getElementById("genSelect").value; // Valor inicial (151)
-	catchAllPokemons(defaultCount); // Cargar Pokémon al cargar la página
-  });
+});
+
+// Se carga automáticamente la primera generación al inicio
+document.addEventListener("DOMContentLoaded", () => {
+	const defaultCount = document.getElementById("genSelect").value;
+	catchAllPokemons(defaultCount);
+});
 
 catchAllPokemons();

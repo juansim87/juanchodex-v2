@@ -9,6 +9,19 @@
 	box-sizing: border-box;
 }
 
+:root {
+	--container-width: 95%;
+	--title-size: 36px;
+	--p-size: 18px;
+	--prim-color: #ffc804;
+	--sec-color: #1d5fa9;
+}
+
+.container {
+	width: var(--container-width);
+	margin: 0 auto;
+}
+
 header {
 	width: 100%;
 	display: flex;
@@ -24,7 +37,6 @@ nav {
 }
 
 .nav-content {
-	width: 90%;
 	display: flex;
 	flex-direction: column;
 	justify-content: column;
@@ -33,14 +45,13 @@ nav {
 }
 
 h1 {
-	font-size: 36px;
-	font-family: 'Pokemon Solid', sans-serif;
-	color: #ffc804;
+	font-size: var(--title-size);
+	font-family: "Pokemon Solid", sans-serif;
+	color: var(--prim-color);
 	letter-spacing: 1px;
 	-webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #1d5fa9;
-  text-shadow: 3px 3px 0px #1d5fa9, 
-  6px 6px 0px #143c66;  
+	-webkit-text-stroke-color: var(--sec-color);
+	text-shadow: 3px 3px 0px var(--sec-color), 6px 6px 0px #143c66;
 }
 
 .pkmn-search {
@@ -49,29 +60,15 @@ h1 {
 	align-items: center;
 }
 
-.nav__logo {
-	width: 32px;
-	
-}
-
-.nav__logo img {
-	width: 100%;
-	filter: invert(89%) sepia(26%) saturate(5212%) hue-rotate(359deg)
-		brightness(102%) contrast(104%);
-}
-
 .filters {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 15px;
-	
-	padding: 10px;
 	border-radius: 10px;
-  }
-  
- 
-  #search__input {
+}
+
+#search__input {
 	padding: 8px 12px;
 	font-size: 16px;
 	border: 2px solid black;
@@ -81,26 +78,26 @@ h1 {
 	color: black;
 	font-weight: bold;
 	transition: 0.3s ease;
-  }
-  
-  #search__input::placeholder {
+}
+
+#search__input::placeholder {
 	color: #555;
 	font-weight: normal;
-  }
-  
-  #search__input:focus {
-	border-color: #ffcc00;
-	box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
-  }
+}
 
-  .gen-selector {
+#search__input:focus {
+	border-color: var(--prim-color);
+	box-shadow: 0 0 10px #ffcc00cc;
+}
+
+.gen-selector {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 8px;
-  }
-  
+}
+
 .option__input {
 	display: flex;
 	flex-direction: column;
@@ -110,61 +107,57 @@ h1 {
 }
 
 .option__input label {
-	font-size: 20px;
-
-	font-family: 'Pokemon Solid', sans-serif;
-	color: #ffc804;
+	font-size: var(--p-size);
+	font-family: "Pokemon Solid", sans-serif;
+	color: var(--prim-color);
 	letter-spacing: 1px;
 	-webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: #1d5fa9;
-  text-shadow: 3px 3px 0px #1d5fa9, 
-  6px 6px 0px #143c66;  
-  
+	-webkit-text-stroke-color: var(--sec-color);
+	text-shadow: 3px 3px 0px var(--sec-color), 6px 6px 0px #143c66;
 }
 
-  #genSelect {
+#genSelect {
 	padding: 8px;
-	font-size: 16px;
+	font-size: var(--p-size);
 	font-weight: bold;
 	border: 2px solid black;
 	border-radius: 10px;
 	background: white;
 	color: black;
 	transition: 0.3s ease;
-  }
-  
-  #genSelect:hover {
-	background: #ffcc00;
+}
+
+#genSelect:hover {
+	background: var(--prim-color);
 	color: black;
-  }
-  
-  #genSelect:focus {
+}
+
+#genSelect:focus {
 	border-color: #ff3333;
 	box-shadow: 0 0 8px rgba(255, 51, 51, 0.8);
-  }
-  
-  
+}
 
-  .nav__logo img {
+.nav__logo img {
 	width: 40px;
 	height: 40px;
-  }
+}
 
 main {
 	width: 100%;
 }
 
 .types {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	width: 100%;
 	background: url(/media/images/battle-arena-pokemon.webp);
 	background-size: cover;
 	background-position: center;
-	display: flex;
-	justify-content: center;
 }
 
 .types-content {
-	width: 90%;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -200,7 +193,72 @@ main {
 }
 
 .types__selector img {
-	width: 80%;
+	width: 85%;
+}
+
+.flip-mode {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+	
+}
+
+.flip-mode label {
+	font-size: var(--p-size);
+	font-family: "Pokemon Solid", sans-serif;
+	color: var(--prim-color);
+	letter-spacing: 1px;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: var(--sec-color);
+	text-shadow: 3px 3px 0px var(--sec-color), 6px 6px 0px #143c66;
+}
+
+/* ✅ Estilos para el checkbox */
+#flipMode {
+	width: 20px;
+	height: 20px;
+	appearance: none;
+	background-color: #fff;
+	border: 2px solid var(--sec-color);
+	border-radius: 4px;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	transition: background 0.3s, box-shadow 0.3s;
+	margin-bottom: -13px;
+}
+
+/* 🎮 Efecto cuando está activado */
+#flipMode:checked {
+	background-color: var(--prim-color);
+	box-shadow: 0 0 10px rgba(255, 200, 4, 0.8);
+	border-color: #ffcc00;
+}
+
+/* ⚡ Efecto al pasar el ratón */
+#flipMode:hover {
+	box-shadow: 0 0 5px #1d5fa9cc;
+}
+
+/* ✅ Agregar un "tick" visual al estar activado */
+#flipMode::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 10px;
+	height: 10px;
+	background: url("https://upload.wikimedia.org/wikipedia/commons/2/27/White_check.svg")
+		no-repeat center;
+	background-size: contain;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition: opacity 0.3s;
+}
+
+#flipMode:checked::after {
+	opacity: 1;
 }
 
 #pokedex {
@@ -210,7 +268,7 @@ main {
 	justify-content: center;
 	align-items: center;
 	font-family: "Quantico", sans-serif;
-	padding: 40px 12px;
+	padding: 20px 0;
 	gap: 12px;
 }
 
@@ -234,12 +292,11 @@ main {
 	width: 100%;
 	height: 100%;
 	text-align: center;
-	transition: transform 0.5s;
+	transition: transform 0.6s;
 	transform-style: preserve-3d;
-	
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card.flipped .flip-card-inner {
 	transform: rotateY(180deg);
 }
 
@@ -260,9 +317,9 @@ main {
 	box-shadow: 0 0 20px #1f2429;
 	background: linear-gradient(
 		135deg,
-		rgba(133, 133, 133, 1) 0%,
-		rgba(124, 124, 124, 1) 36%,
-		rgba(249, 180, 30, 1) 75%
+		#858585 0%,
+		#7c7c7c 36%,
+		#f9b41e 75%
 	);
 	padding: 4px;
 }
@@ -271,7 +328,6 @@ main {
 	background-color: transparent;
 	gap: 4px;
 }
-
 
 .pkmn__core {
 	display: flex;
@@ -285,10 +341,17 @@ main {
 	height: 80px;
 	border: 1px solid black;
 	border-radius: 100px;
-	background: linear-gradient(180deg, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 49%, rgba(0,0,0,1) 50%, rgba(255,255,255,1) 51%, rgba(255,255,255,1) 100%);
+	background: linear-gradient(
+		180deg,
+		#ff0000 0%,
+		#ff0000 49%,
+		#000000 50%,
+		#ffffff 51%,
+		#ffffff 100%
+	);
 }
 
-.pkmn__image img{
+.pkmn__image img {
 	width: 100%;
 }
 
@@ -306,9 +369,8 @@ main {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	color: black;
+	color: #000000;
 	gap: 4px;
-	
 }
 
 .pkmn__types {
@@ -327,7 +389,6 @@ main {
 	padding: 3px;
 	border-radius: 12px;
 	box-shadow: 0 0 20px #fff;
-	
 }
 
 .flip-card-back {
