@@ -1,16 +1,30 @@
 @media (min-width: 481px) {
 	:root {
         --container-width: 85%;
+        --title-size: 44px;
+        --title-spacing: 0.3rem;
+        --p-size: 28px;
+        --type-sel-size: 54px;
+        --type-sel-border: 3px;
+        --adjust-checkbox: -20px;
+        --card-width: 156px;
+	    --card-height: 240px;
+        --pkball-size: 112px;
+        --id-size: 16px;
+        --name-size: 20px;
+        --type-size: 12px;
+        --type-box-padding: 5px;
+        --h2-back-size: 18px;
     }
 
 }
 
 
 
-
 @media (min-width: 1024px) {
 	:root {
-        --container-width: 75%;
+        
+        --title-size: 66px;
     }
 
 
