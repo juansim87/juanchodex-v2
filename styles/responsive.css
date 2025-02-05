@@ -7,14 +7,18 @@
         --type-sel-size: 54px;
         --type-sel-border: 3px;
         --adjust-checkbox: -20px;
-        --card-width: 156px;
-	    --card-height: 240px;
+        --card-width: 148px;
+	    --card-height: 228px;
         --pkball-size: 112px;
         --id-size: 16px;
         --name-size: 20px;
-        --type-size: 12px;
+        --type-size: 11px;
         --type-box-padding: 5px;
         --h2-back-size: 18px;
+    }
+
+    .flip-card-back {
+        gap: 12px;
     }
 
 }
