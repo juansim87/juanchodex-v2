@@ -50,6 +50,29 @@ const typeNames = {
 	all: "todos",
 };
 
+
+const typeBackgrounds = {
+	fire: "url('/media/backgrounds/fire.webp')",
+	grass: "url('/media/backgrounds/grass.webp')",
+	water: "url('/media/backgrounds/water.webp')",
+	flying: "url('/media/backgrounds/flying.webp')",
+	electric: "url('/media/backgrounds/electric.webp')",
+	ground: "url('/media/backgrounds/ground.webp')",
+	rock: "url('/media/backgrounds/rock.webp')",
+	fairy: "url('/media/backgrounds/fairy.webp')",
+	bug: "url('/media/backgrounds/bug.webp')",
+	poison: "url('/media/backgrounds/poison.webp')",
+	dragon: "url('/media/backgrounds/dragon.webp')",
+	psychic: "url('/media/backgrounds/psychic.webp')",
+	fighting: "url('/media/backgrounds/fighting.webp')",
+	normal: "url('/media/backgrounds/normal.webp')",
+	ghost: "url('/media/backgrounds/ghost.webp')",
+	steel: "url('/media/backgrounds/steel.webp')",
+	ice: "url('/media/backgrounds/ice.webp')",
+	dark: "url('/media/backgrounds/dark.webp')",
+	all: "url('/media/images/grass-field.png')", // Fondo por defecto
+};
+
 // Con esta función pintamos en la web los Pokemon seleccionados. La variable pokemonsToPaint indica cuáles de ellos.
 
 const paintPokemons = (pokemonsToPaint) => {
@@ -219,12 +242,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const filterPokemonByType = (type) => {
 	if (type === "all") {
-		document.body.style.background =
-			"url('/media/images/field-map.webp') repeat";
-
+		// 🌿 Si se selecciona "all", usa el fondo por defecto
+		document.getElementById("pokedex").style.backgroundImage = typeBackgrounds["all"];
 		return paintPokemons(ALL_POKEMONS);
 	}
 
+	// 🎨 Filtrar Pokémon por tipo
 	const filteredByType = ALL_POKEMONS.filter((pokemon) => {
 		let firstType = false;
 		let secondType = false;
@@ -240,7 +263,11 @@ const filterPokemonByType = (type) => {
 	});
 
 	paintPokemons(filteredByType);
-	document.body.style.background = typeColors[type] || "gray";
+
+	// 🔥 Aplicar el fondo de imagen correspondiente al tipo seleccionado
+	document.getElementById("pokedex").style.backgroundImage = typeBackgrounds[type] || typeBackgrounds["all"];
+
+	
 };
 
 document.getElementById("search__input").addEventListener("input", (event) => {
